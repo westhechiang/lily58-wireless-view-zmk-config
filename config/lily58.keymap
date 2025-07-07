@@ -27,6 +27,25 @@
 &kp LCTRL &kp A  &kp S  &kp D    &kp F    &kp G                      &kp H  &kp J    &kp K     &kp L   &kp SEMI &kp SQT
 &kp LSHFT &kp Z  &kp X  &kp C    &kp V    &kp B  &kp LBKT   &kp RBKT &kp N  &kp M    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
                         &kp LALT &kp LGUI &mo 1  &kp SPACE  &kp RET  &mo 2  &kp BSPC &kp RGUI
+                // Top row (QWERTY)
+                &kp Q &kp W &kp E &kp R &kp T
+
+                // Left Home Row Mods
+                &mt LGUI A  // Tap = A, Hold = Left GUI (Command on macOS)
+                &mt LALT S   // Tap = S, Hold = Left Alt
+                &mt LSHIFT D   // Tap = D, Hold = Left Shift
+                &mt LCTL F  // Tap = F, Hold = Left Control
+                &kp G
+
+                // Right Home Row Mods
+                &kp H
+                &mt RCTL J    // Tap = J, Hold = Right Control
+                &mt RSHIFT K   // Tap = K, Hold = Right Shift
+                &mt RALT L    // Tap = L, Hold = Right Alt
+                &mt RGUI SEMI // Tap = Semicolon , Hold Right GUI (Command on macOS)
+
+                // Bottom row (QWERTY)
+                &kp Z &kp X &kp C &kp V &kp B
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -83,3 +102,4 @@
         };
     };
 };
+
