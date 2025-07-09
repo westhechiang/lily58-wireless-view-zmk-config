@@ -24,35 +24,22 @@
     };
 
     behaviors {
-        hm_l: homerow_mods_left {
+        hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS_LEFT";
+            label = "HOMEROW_MODS";
             #binding-cells = <2>;
             tapping-term-ms = <175>;
             quick-tap-ms = <175>;
-            require-prior-idle-ms = <200>;
+            require-prior-idle-ms = <225>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 39 40 41>; // right hand keys
-        };
-
-        hm_r: homerow_mods_right {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS_RIGHT";
-            #binding-cells = <2>;
-            tapping-term-ms = <175>;
-            quick-tap-ms = <175>;
-            require-prior-idle-ms = <200>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38>; // left hand keys
         };
 
         esc_hyper: esc_hyper {
             compatible = "zmk,behavior-hold-tap";
             label = "ESC_HYPER";
             #binding-cells = <2>;
-            tapping-term-ms = <100>;
+            tapping-term-ms = <75>;
             quick-tap-ms = <125>;
             flavor = "balanced";
             bindings = <&hyper>, <&kp>;
@@ -72,7 +59,7 @@
             bindings = <
 &kp ESC   &kp N1 &kp N2 &kp N3   &kp N4   &kp N5                     &kp N6 &kp N7   &kp N8    &kp N9  &kp N0   &kp GRAVE
 &kp TAB   &kp Q  &kp W  &kp E    &kp R    &kp T                      &kp Y  &kp U    &kp I     &kp O   &kp P    &kp MINUS
-&esc_hyper 0 ESC &hm_l LGUI A  &hm_l LALT S  &hm_l LSHFT D  &hm_l LCTRL F  &kp G    &kp H  &hm_r RCTRL J  &hm_r RSHFT K  &hm_r RALT L  &hm_r RGUI SEMI &kp SQT
+&esc_hyper 0 ESC &hm LGUI A  &hm LALT S  &hm LSHFT D  &hm LCTRL F  &kp G    &kp H  &hm RCTRL J  &hm RSHFT K  &hm RALT L  &hm RGUI SEMI &kp SQT
 &kp LSHFT &kp Z  &kp X  &kp C    &kp V    &kp B  &kp LBKT   &kp RBKT &kp N  &kp M    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
                         &kp LALT &kp LGUI &mo 1  &kp SPACE  &kp RET  &mo 2  &kp BSPC &kp RGUI
             >;
