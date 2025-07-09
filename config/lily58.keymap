@@ -28,10 +28,10 @@
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
             #binding-cells = <2>;
-            tapping-term-ms = <175>;
+            tapping-term-ms = <280>;
             quick-tap-ms = <175>;
-            require-prior-idle-ms = <225>;
-            flavor = "tap-preferred";
+            require-prior-idle-ms = <150>;
+            flavor = "balanced";
             bindings = <&kp>, <&kp>;
         };
 
@@ -39,9 +39,9 @@
             compatible = "zmk,behavior-hold-tap";
             label = "ESC_HYPER";
             #binding-cells = <2>;
-            tapping-term-ms = <100>;
+            tapping-term-ms = <125>;
             quick-tap-ms = <125>;
-            flavor = "balanced";
+            flavor = "hold-preferred";
             bindings = <&hyper>, <&kp>;
         };
     };
