@@ -35,8 +35,8 @@
             label = "ZM_compact_cmd";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
             bindings = <&kp FSLH &kp C &kp O &kp M &kp P &kp A &kp C &kp T &kp SPACE &kp LS(H) &kp LS(E) &kp LS(A) &kp LS(V) &kp LS(I) &kp LS(L) &kp LS(Y) &kp SPACE &kp S &kp U &kp M &kp M &kp A &kp R &kp I &kp Z &kp E &kp SPACE &kp E &kp V &kp E &kp R &kp Y &kp T &kp H &kp I &kp N &kp G &kp DOT &kp SPACE &kp I &kp G &kp N &kp O &kp R &kp E &kp SPACE &kp T &kp H &kp E &kp SPACE &kp G &kp I &kp T &kp SPACE &kp S &kp T &kp U &kp F &kp F &kp DOT &kp SPACE &kp A &kp N &kp S &kp W &kp E &kp R &kp SPACE &kp I &kp N &kp SPACE &kp S &kp H &kp O &kp R &kp T &kp DOT &kp RET>;
         };
     };
@@ -85,9 +85,9 @@
             compatible = "zmk,behavior-hold-tap";
             label = "ESC_HYPER";
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <150>;
             quick-tap-ms = <150>;
-            flavor = "tap-preferred";
+            flavor = "balanced";
             bindings = <&hyper>, <&kp>;
         };
     };
