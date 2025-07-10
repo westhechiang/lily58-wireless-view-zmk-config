@@ -10,6 +10,14 @@
 #include <dt-bindings/zmk/ext_power.h>
 
 / {
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        tri_layer {
+            if-layers = <1 2>;
+            then-layer = <3>;
+        };
+    };
+
     macros {
         hyper: hyper {
             label = "ZM_hyper";
@@ -19,6 +27,26 @@
                 = <&macro_press &kp LSHFT &kp LCTRL &kp LALT &kp LGUI>
                 , <&macro_pause_for_release>
                 , <&macro_release &kp LSHFT &kp LCTRL &kp LALT &kp LGUI>
+                ;
+        };
+        
+        compact_cmd: compact_cmd {
+            label = "ZM_compact_cmd";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp FSLH &kp C &kp O &kp M &kp P &kp A &kp C &kp T &kp SPACE>
+                , <&macro_tap &kp LS(H) &kp LS(E) &kp LS(A) &kp LS(V) &kp LS(I) &kp LS(L) &kp LS(Y) &kp SPACE>
+                , <&macro_tap &kp S &kp U &kp M &kp M &kp A &kp R &kp I &kp Z &kp E &kp SPACE>
+                , <&macro_tap &kp E &kp V &kp E &kp R &kp Y &kp T &kp H &kp I &kp N &kp G &kp DOT &kp SPACE>
+                , <&macro_tap &kp I &kp G &kp N &kp O &kp R &kp E &kp SPACE>
+                , <&macro_tap &kp T &kp H &kp E &kp SPACE>
+                , <&macro_tap &kp G &kp I &kp T &kp SPACE>
+                , <&macro_tap &kp S &kp T &kp U &kp F &kp F &kp DOT &kp SPACE>
+                , <&macro_tap &kp A &kp N &kp S &kp W &kp E &kp R &kp SPACE>
+                , <&macro_tap &kp I &kp N &kp SPACE>
+                , <&macro_tap &kp S &kp H &kp O &kp R &kp T &kp DOT>
+                , <&macro_tap &kp RET>
                 ;
         };
     };
@@ -39,9 +67,9 @@
             compatible = "zmk,behavior-hold-tap";
             label = "ESC_HYPER";
             #binding-cells = <2>;
-            tapping-term-ms = <125>;
-            quick-tap-ms = <125>;
-            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
+            flavor = "tap-preferred";
             bindings = <&hyper>, <&kp>;
         };
     };
@@ -105,8 +133,23 @@
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
-        extra_1 {
-            status = "reserved";
+        macros_layer {
+// ------------------------------------------------------------------------------------------------------------
+// |       |     |     |      |      |      |                   |      |       |       |      |       |       |
+// |       |     |     |      |      |      |                   |      |       |       |      |       |       |
+// |       |     |     |      |      |      |                   |      |       |       |      |       |       |
+// |       |     |  X  |  C   |      |      |        |  |       |      |       |       |      |       |       |
+//                     |      |      |      |        |  |       |      |       |       |
+            display-name = "Macros";
+            bindings = <
+&trans    &trans &trans &trans           &trans  &trans                       &trans      &trans    &trans    &trans   &trans    &trans
+&trans    &trans &trans &trans           &trans  &trans                       &trans      &trans    &trans    &trans   &trans    &trans
+&trans    &trans &trans &trans           &trans  &trans                       &trans      &trans    &trans    &trans   &trans    &trans
+&trans    &trans &trans &compact_cmd     &trans  &trans   &trans   &trans     &trans      &trans    &trans    &trans   &trans    &trans
+                        &trans           &trans  &trans   &trans   &trans     &trans      &trans    &trans
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         extra_2 {
