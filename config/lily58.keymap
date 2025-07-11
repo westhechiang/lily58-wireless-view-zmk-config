@@ -85,8 +85,8 @@
             compatible = "zmk,behavior-hold-tap";
             label = "ESC_HYPER";
             #binding-cells = <2>;
-            tapping-term-ms = <150>;
-            quick-tap-ms = <150>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
             flavor = "balanced";
             bindings = <&hyper>, <&kp>;
         };
