@@ -8,6 +8,25 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
+/* Global settings */
+
+#define QUICK_TAP_MS 175
+
+&sk {  // Sticky keys
+    release-after-ms = <900>;
+    quick-release;
+};
+
+&sl {  // Sticky layers
+    ignore-modifiers;
+};
+
+&lt {  // Layer taps
+    flavor = "balanced";
+    tapping-term-ms = <200>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+};
+
 / {
     conditional_layers {
         compatible = "zmk,conditional-layers";
@@ -42,17 +61,18 @@
     };
 
     behaviors {
+        /* Timeless homerow mods (based on urob's configuration) */
         hm_l: homerow_mods_left {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS_LEFT";
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            quick-tap-ms = <175>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <QUICK_TAP_MS>;
             require-prior-idle-ms = <150>;
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
 
-            hold-trigger-key-positions = <6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 39 40 41>; // right hand
+            hold-trigger-key-positions = <6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 39 40 41 42 43 44>; // right hand + thumbs
             hold-trigger-on-release;
         };
 
@@ -60,13 +80,13 @@
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS_RIGHT";
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            quick-tap-ms = <175>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <QUICK_TAP_MS>;
             require-prior-idle-ms = <150>;
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
 
-            hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38>; // left hand
+            hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38 42 43 44>; // left hand + thumbs
             hold-trigger-on-release;
         };
 
@@ -75,7 +95,7 @@
             label = "HOMEROW_MODS";
             #binding-cells = <2>;
             tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
+            quick-tap-ms = <QUICK_TAP_MS>;
             require-prior-idle-ms = <150>;
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
@@ -86,7 +106,7 @@
             label = "ESC_HYPER";
             #binding-cells = <2>;
             tapping-term-ms = <200>;
-            quick-tap-ms = <175>;
+            quick-tap-ms = <QUICK_TAP_MS>;
             require-prior-idle-ms = <0>;
             flavor = "hold-preferred";
             bindings = <&hyper>, <&kp>;
