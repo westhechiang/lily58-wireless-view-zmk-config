@@ -12,16 +12,16 @@
 
 #define QUICK_TAP_MS 175
 
-&sk {  // Sticky keys
+&sk {
     release-after-ms = <900>;
     quick-release;
 };
 
-&sl {  // Sticky layers
+&sl {
     ignore-modifiers;
 };
 
-&lt {  // Layer taps
+&lt {
     flavor = "balanced";
     tapping-term-ms = <200>;
     quick-tap-ms = <QUICK_TAP_MS>;
@@ -62,6 +62,7 @@
 
     behaviors {
         /* Timeless homerow mods (based on urob's configuration) */
+
         hm_l: homerow_mods_left {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS_LEFT";
@@ -110,6 +111,7 @@
             require-prior-idle-ms = <0>;
             flavor = "balanced";
             bindings = <&hyper>, <&kp>;
+
             hold-trigger-on-release;
         };
     };
@@ -149,7 +151,7 @@
             bindings = <
 &trans                    &trans                    &trans            &trans             &trans                &trans                                              &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1     &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
 &kp F1                    &kp F2                    &kp F3            &kp F4             &kp F5                &kp F6                                              &kp F7      &kp F8        &kp F9           &kp F10       &kp F11       &kp F12
-&kp GRAVE                 &kp EXCL                  &kp AT            &kp HASH           &kp DOLLAR            &kp PRCNT                                           &kp CARET   &kp AMPS      &kp KP_MULTIPLY  &kp LPAR      &kp RPAR      &kp TILDE
+&kp GRAVE                 &kp EXCL                  &kp AT            &kp HASH           &kp LG(LS(SPACE))     &kp LG(J)                                           &kp CARET   &kp AMPS      &kp KP_MULTIPLY  &kp LPAR      &kp RPAR      &kp TILDE
 &kp LG(LS(LC(NUMBER_4)))  &kp LS(LC(LG(NUMBER_5)))  &kp LA(LC(LEFT))  &kp LA(LC(RIGHT))  &kp LA(LC(LG(LEFT)))  &kp LA(LC(LG(RIGHT)))  &kp LA(LC(LG(M)))    &trans  &trans      &kp MINUS     &kp KP_PLUS      &kp LBRC      &kp RBRC      &kp PIPE
                                                                       &trans             &trans                &trans                 &trans               &trans  &trans      &trans        &trans
             >;
